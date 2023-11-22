@@ -14,7 +14,8 @@ public class ParallelStreamsExample {
         return namesList
                 .stream()
                 .map(this::transform)
-                .parallel()
+                .parallel() //this takes the preference here, so the code is executed in parallel. 
+                //"sequential() method is also available" to explicitly call out running the block in sequence.
                 .collect(Collectors.toList());
     }
 
@@ -25,6 +26,13 @@ public class ParallelStreamsExample {
                 .collect(Collectors.toList());
     }*/
 
+    /**
+     * Dynamically decide whether to use sequential or parallel stream
+     * 
+     * @param namesList
+     * @param isParallel
+     * @return
+     */
     public List<String> stringTransform_1(List<String> namesList, boolean isParallel) {
 
         Stream<String> nameStream = namesList.stream();

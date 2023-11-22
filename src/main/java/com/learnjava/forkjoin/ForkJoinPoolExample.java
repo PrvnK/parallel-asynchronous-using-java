@@ -16,6 +16,17 @@ import static com.learnjava.util.CommonUtil.stopWatch;
 public class ForkJoinPoolExample  {
 
     ForkJoinPool forkJoinPool = new ForkJoinPool();
+    
+    /**
+     * This method takes list of string as an input and return List<String> as response with some processing inbetween.
+     * In output list, each string is of following format: "{sizeOfInputString}-inputString". This method illustrates 
+     * how it can be done using the ForkJoinPool.
+     * 
+     * ForkJoinTask is created and following the Divide and Conquer approach, the input is divided into smaller size (forks)
+     * Later once the transformation is complete, using the join() method the response list is constructed again.
+     * @param inputList
+     * @return
+     */
 
     public List<String> compute(List<String> inputList){
 
